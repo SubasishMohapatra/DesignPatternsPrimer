@@ -6,12 +6,25 @@ namespace AbstractFactory
     {
         static void Main(string[] args)
         {
-            new DotNetFactory().GetDeskTopDevelopers().SayHi();
-            new DotNetFactory().GetWebDevelopers().SayHi();
-            new DotNetFactory().GetMobileDevelopers().SayHi();
-            new JavaFactory().GetDeskTopDevelopers().SayHi();
-            new JavaFactory().GetMobileDevelopers().SayHi();
-            new JavaFactory().GetWebDevelopers().SayHi();
+            new SoftwareDeveloperFactory().GetDotNetProfessional().GetDeskTopDevelopers().SayHi();
+            new SoftwareDeveloperFactory().GetDotNetProfessional().GetWebDevelopers().SayHi();
+            new SoftwareDeveloperFactory().GetDotNetProfessional().GetMobileDevelopers().SayHi();
+            new SoftwareDeveloperFactory().GetJavaProfessional().GetDeskTopDevelopers().SayHi();
+            new SoftwareDeveloperFactory().GetJavaProfessional().GetMobileDevelopers().SayHi();
+            new SoftwareDeveloperFactory().GetJavaProfessional().GetWebDevelopers().SayHi();
+        }
+    }
+
+    class SoftwareDeveloperFactory : ISoftwareDeveloperFactory
+    {
+        public IDotNetFactory GetDotNetProfessional()
+        {
+            return new DotNetFactory();
+        }
+
+        public IJavaFactory GetJavaProfessional()
+        {
+            return new JavaFactory();
         }
     }
 
@@ -122,4 +135,9 @@ namespace AbstractFactory
         }
     }
 
+    interface ISoftwareDeveloperFactory
+    {
+        IDotNetFactory GetDotNetProfessional();
+        IJavaFactory GetJavaProfessional();
+    }
 }
