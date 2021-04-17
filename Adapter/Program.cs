@@ -17,19 +17,19 @@ namespace Adapter
         {
             public void FitIntoWesternSocket()
             {
-                Console.WriteLine("Western plug fitted");
+                Console.WriteLine("Western plug fitted into western socket");
             }
         }
 
-        class IndianPlug
+        class IndianPlug : IIndianPlug
         {
             public void FitIntoIndianSocket()
             {
-                Console.WriteLine("Indian plug fitted");
+                Console.Write("Indian plug fitted");
             }
         }
 
-        class Adapter: IWesternPlug
+        class Adapter : IWesternPlug
         {
             IndianPlug _indianPlug;
             public Adapter(IndianPlug indianPlug)
@@ -40,6 +40,7 @@ namespace Adapter
             public void FitIntoWesternSocket()
             {
                 _indianPlug?.FitIntoIndianSocket();
+                Console.WriteLine(" into an western socket");
             }
         }
     }
@@ -47,5 +48,9 @@ namespace Adapter
     interface IWesternPlug
     {
         void FitIntoWesternSocket();
+    }
+    interface IIndianPlug
+    {
+        void FitIntoIndianSocket();
     }
 }

@@ -16,27 +16,27 @@ namespace ChainOfResponsibility
         }
     }
 
-    interface IInterview
+    interface IInterviewer
     {
-        IInterview SetNext(IInterview interviewer);
+        IInterviewer SetNext(IInterviewer interviewer);
         void TakeInterview();
     }
 
-    class Interviewer1 : BaseInterview,IInterview
+    class Interviewer1 : BaseInterview,IInterviewer
     {
         public Interviewer1():base("Round1")
         {
 
         }       
     }
-    class Interviewer2 : BaseInterview, IInterview
+    class Interviewer2 : BaseInterview, IInterviewer
     {
         public Interviewer2() : base("Round2")
         {
 
         }
     }
-    class Interviewer3 : BaseInterview, IInterview
+    class Interviewer3 : BaseInterview, IInterviewer
     {
         public Interviewer3() : base("Round3")
         {

@@ -10,9 +10,9 @@ namespace ChainOfResponsibility
         {
             _interviewRound = interviewRound;
         }
-        public IInterview _nextInterviewer;
+        public IInterviewer _nextInterviewer;
         public bool clearedCandidate = false;
-        public IInterview SetNext(IInterview nextInterviewer)
+        public IInterviewer SetNext(IInterviewer nextInterviewer)
         {
             _nextInterviewer = nextInterviewer;
             return _nextInterviewer;
